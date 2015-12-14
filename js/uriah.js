@@ -12,7 +12,7 @@ $(function(){
     }
 
 
-    var arr = $('img').map(function() { return this; }).get().reverse();
+    var arr = $('img').map(function() { return this; }).get();
 
     $.each(arr, function(key, image){
         var uriah = localStorage.getItem($(image).attr('src'));
