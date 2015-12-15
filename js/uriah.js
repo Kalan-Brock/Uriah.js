@@ -28,7 +28,7 @@ $(function(){
             ctx.drawImage(img, 0, 0);
 
             var dataURL;
-            if(browser.name == "Chrome"){
+            if(browser.name == "Chrome" || browser.name == "Opera"){
                 dataURL = canvas.toDataURL("image/webp");
             }
             else {
@@ -46,10 +46,10 @@ $(function(){
 
         if(!uriah)
         {
-            image.onload = function(){
+            $(image).on('load', function(){
                 var uri = getBase64Image(image);
                 localStorage.setItem($(image).attr('src'), uri);
-            };
+            });
         }
         else {
             $(image).attr('src', uriah);
