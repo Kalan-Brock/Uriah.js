@@ -42,14 +42,19 @@ $(function(){
     var arr = $('img').map(function() { return this; }).get();
 
     $.each(arr, function(key, image){
+
         var uriah = localStorage.getItem($(image).attr('src'));
 
-        if(!uriah)
+        if(uriah === null)
         {
             $(image).on('load', function(){
                 var uri = getBase64Image(image);
                 localStorage.setItem($(image).attr('src'), uri);
             });
+
+            //For fast loading images.
+            var uri = getBase64Image(image);
+            localStorage.setItem($(image).attr('src'), uri);
         }
         else {
             $(image).attr('src', uriah);
